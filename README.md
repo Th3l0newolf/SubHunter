@@ -23,15 +23,15 @@ Install with Git
 
 
 ```bash
-git clone https://github.com
+git clone https://github.com/Th3l0newolf/SubHunter
 ```
 Navigate to folder and set permissions
 ```bash
-chmod +x filename.sh
+chmod +x SubHunter.sh
 ```
 Execute the script
 ```bash
-./filename.sh
+./SubHunter.sh
 ```
 
 
