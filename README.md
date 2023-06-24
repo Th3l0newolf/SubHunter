@@ -50,7 +50,7 @@ Subdomain Hunter empowers security professionals, penetration testers, bug bount
 
 ## Screenshots
 
-![App Screenshot](https://github.com/Th3l0newolf/SubHunter/blob/main/SubHunter.png)
+![App Screenshot](https://github.com/Th3l0newolf/SubHunter/blob/main/SubHunter-update.png)
 
 
 ## Feedback
