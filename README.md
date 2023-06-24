@@ -11,8 +11,10 @@ assessments and bug bounty programs.
 
 ## Features
 
-- SubHunter leverages search techniques to uncover subdomains associated with a target domain. It performs intelligent scanning and analysis to identify potential subdomain candidates.
-- supports single and multi outputs
+- SubHunter leverages search techniques to uncover subdomains associated with a target domain. It performs intelligent scanning and analysis to identify potential subdomain.
+- supports single and multi outputs.
+- Filtering of live sub-domains
+- Sub-domain flyover-taking screenshots of sub-domains.
 
 
 
@@ -34,9 +36,18 @@ Execute the script
 ./SubHunter.sh
 ```
 
+## Requirements
+Install below dependencies
+
+[httpx](https://github.com/projectdiscovery/httpx)
+
+[gowitness](https://github.com/sensepost/gowitness)
+
+
 
 
 Subdomain Hunter empowers security professionals, penetration testers, bug bounty hunters, and anyone involved in domain reconnaissance with a robust and efficient toolset for subdomain discovery. By utilizing this script, you can enhance your understanding of a target's attack surface and strengthen your overall security posture.
+
 ## Screenshots
 
 ![App Screenshot](https://github.com/Th3l0newolf/SubHunter/blob/main/SubHunter.png)
@@ -45,10 +56,10 @@ Subdomain Hunter empowers security professionals, penetration testers, bug bount
 ## Feedback
 
 If you have any feedback, please reach out to me on twitter @th3lonewolf1 
+
 ## Roadmap
 
 - Export data in JSON or other format.
 
-- Filtering live sub-domains.
 
 
