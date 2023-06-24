@@ -16,12 +16,18 @@ print_banner() {
 }
 
 print_main_menu() {
-    echo ""
-    echo "----------Main Menu---------"
-    echo "1. Single input"
-    echo "2. Multiple Input[".txt" "file"]"
-    echo "3. Quit"
-    echo "----------------------------"
+echo "+----------------------------------+"
+echo "|        Main Menu                 |"
+echo "+----------------------------------+"
+echo "| 1. Single input                  |"
+echo "+----------------------------------+"
+echo "| 2. Multiple Input ['.txt'file]   |"
+echo "+----------------------------------+"
+echo "| 3. Take Screenshots ['.txt'file] |"
+echo "+----------------------------------+"
+echo "| 4. Quit                          |"
+echo "+----------------------------------+"
+
 }
 
 handle_single_input() {
@@ -36,6 +42,10 @@ handle_single_input() {
         sed -e 's:^*\.::g' -e 's:.*@::g' -e 's:^\.::g') | sort -u > "$output_file"
 
     echo "Subdomains for $website retrieved and saved to $output_file"
+
+    httpx -l "$output_file" -o "${output_file}_live.txt" -timeout 5 -mc 200
+
+    echo "Live subdomains filtered and saved to ${output_file}_live.txt"
 
     back_to_main_menu
 }
@@ -54,6 +64,24 @@ handle_input_file() {
             sed -e 's:^*\.::g' -e 's:.*@::g' -e 's:^\.::g') | sort -u > "$output_file"
 
         echo "Subdomains for $website retrieved and saved to $output_file"
+        echo "-------------------------"
+
+        httpx -l "$output_file" -o "${output_file}_live.txt" -timeout 5 -mc 200
+
+        echo "Live subdomains filtered and saved to ${output_file}_live.txt"
+        echo "-------------------------"
+    done < "$file"
+
+    back_to_main_menu
+}
+
+take_screenshots() {
+    read -p "Enter the path to the input file: " file
+
+    while IFS= read -r url; do
+        gowitness single "$url" -P "screenshots/"
+
+        echo "Screenshot taken for $url and saved as screenshots/$url.png"
         echo "-------------------------"
     done < "$file"
 
@@ -85,6 +113,11 @@ main_menu() {
             handle_input_file
             ;;
         3)
+            clear
+            print_banner
+            take_screenshots
+            ;;
+        4)
             echo "Goodbye!"
             exit 0
             ;;
@@ -95,5 +128,5 @@ main_menu() {
     esac
 }
 
+# Start the script
 main_menu
-
